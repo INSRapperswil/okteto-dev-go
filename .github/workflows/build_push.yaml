@@ -27,7 +27,7 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/insrapperswil/okteto-dev-golang:latest
-            ghcr.io/insrapperswil/okteto-dev-golang:${{ steps.vars.outputs.tag }}
             insost/okteto-dev-golang:latest
             insost/okteto-dev-golang:${{ steps.vars.outputs.tag }}
+            ghcr.io/insrapperswil/okteto-dev-golang:latest
+            ghcr.io/insrapperswil/okteto-dev-golang:${{ steps.vars.outputs.tag }}
