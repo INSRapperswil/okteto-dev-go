@@ -11,6 +11,11 @@ jobs:
       - name: Get the tag
         id: vars
         run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.dockerhub_username }}
+          password: ${{ secrets.dockerhub_token }}
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
         with:
@@ -24,3 +29,5 @@ jobs:
           tags: |
             ghcr.io/insrapperswil/okteto-dev-golang:latest
             ghcr.io/insrapperswil/okteto-dev-golang:${{ steps.vars.outputs.tag }}
+            insost/okteto-dev-golang:latest
+            insost/okteto-dev-golang:${{ steps.vars.outputs.tag }}
